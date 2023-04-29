@@ -1,12 +1,15 @@
-import classes from './App.module.scss';
-import Header from './layout/Header/Header';
+import Header from './components/Header/Header';
+import RegisterModal from './components/RegisterModal/RegisterModal';
 
-function App() {
+import classes from './App.module.scss';
+
+const App = () => {
   return (
     <main className={classes.root}>
+      <RegisterModal />
       <Header />
     </main>
   )
 }
 
-export default App
+export default App;
