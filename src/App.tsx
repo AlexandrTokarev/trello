@@ -1,11 +1,10 @@
 import classes from './App.module.scss';
+import Header from './layout/Header/Header';
 
 function App() {
   return (
     <main className={classes.root}>
-      <header className={classes.header}>
-
-      </header>
+      <Header />
     </main>
   )
 }
