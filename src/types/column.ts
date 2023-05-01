@@ -1,9 +1,9 @@
-import { Card } from "./card";
+import { ICard } from "./card";
 
-export interface Column {
+export interface IColumn {
   id: string;
   title: string;
   created: string;
   updated: string;
-  cards: Card[];
+  cards: ICard[];
 }

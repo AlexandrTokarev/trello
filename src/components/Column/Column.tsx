@@ -7,6 +7,8 @@ import BootstrapCard from "react-bootstrap/Card";
 import { selectColumnCards } from "@/store/board";
 import { RootState } from "@/store/store";
 
+import Card from "../Card/Card";
+
 import Actions from "./components/Actions/Actions";
 import { ColumnProps } from "./Column.types";
 
@@ -51,18 +53,13 @@ const Column: FC<ColumnProps> = ({ id, title, index }) => {
                 {cards.map((card, idx) => (
                   <Card
                     key={card.id}
-                    cardId={card.id}
                     index={idx}
-                    columnId={id}
-                    text={card.title}
+                    {...card}
                   />
                 ))}
                 {provided.placeholder}
                 {createdMode && (
-                  <AddCard
-                    toggleAddingCard={toggleCreatedMode}
-                    columnId={id}
-                  />
+                  <div>Add</div>
                 )}
               </BootstrapCard.Body>
             )}

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { Column } from "@/types/column";
+import { IColumn } from "@/types/column";
 
 import { BoardState, MoveColumnPayload } from "./types";
 
@@ -12,7 +12,7 @@ export const boardSlice = createSlice({
   name: "board",
   initialState,
   reducers: {
-    addColumn: (state, action: PayloadAction<Column>) => {
+    addColumn: (state, action: PayloadAction<IColumn>) => {
       state.columns.push(action.payload);
     },
     moveColumn: (state, { payload }: PayloadAction<MoveColumnPayload>) => {

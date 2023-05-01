@@ -1,8 +1,8 @@
-import { User } from "./user";
+import { IUser } from "./user";
 
-export interface Card {
+export interface ICard {
   id: string;
   title: string;
   description: string;
-  author: User | null;
+  author: IUser | null;
 }

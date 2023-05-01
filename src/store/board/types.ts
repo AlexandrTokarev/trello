@@ -1,7 +1,7 @@
-import { Column } from "@/types/column";
+import { IColumn } from "@/types/column";
 
 export interface BoardState {
-  columns: Array<Column>;
+  columns: Array<IColumn>;
 }
 
 export interface MoveColumnPayload {

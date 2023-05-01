@@ -1,5 +1,5 @@
-import { Column } from "@/types/column";
+import { IColumn } from "@/types/column";
 
-export interface ColumnProps extends Column {
+export interface ColumnProps extends IColumn {
   index: number;
 }
