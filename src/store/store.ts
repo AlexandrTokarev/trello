@@ -1,22 +1,24 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { combineReducers } from 'redux';
+import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers } from "redux";
 
-import userReducer from './user/slice';
+import userReducer from "./user/slice";
+import boardReducer from "./board/slice";
 
-import { loadState, saveState } from './utils/localStorage';
+import { loadState, saveState } from "./utils/localStorage";
 
 const reducers = combineReducers({
-    user: userReducer,
+  user: userReducer,
+  board: boardReducer,
 });
-  
+
 const store = configureStore({
-    devTools: true,
-    reducer: reducers,
-    preloadedState: loadState(),
+  devTools: true,
+  reducer: reducers,
+  preloadedState: loadState(),
 });
 
 store.subscribe(() => {
-    saveState(store.getState());
+  saveState(store.getState());
 });
 
 export type RootState = ReturnType<typeof store.getState>;

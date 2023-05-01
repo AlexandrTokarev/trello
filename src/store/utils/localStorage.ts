@@ -1,4 +1,4 @@
-const KEY = 'store';
+const KEY = "store";
 
 export function loadState() {
   try {

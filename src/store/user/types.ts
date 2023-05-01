@@ -1,4 +1,4 @@
 export interface UserState {
-    isAuth: boolean;
-    name: string;
+  isAuth: boolean;
+  name: string;
 }
