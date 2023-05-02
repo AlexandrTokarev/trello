@@ -1,6 +1,7 @@
 import { ChangeEvent, FC, FormEvent, MouseEvent, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
+import { FaPlus, FaTimes } from "react-icons/fa";
 
 import { addColumn } from "@/store/board";
 import { uuid } from '@/utils/uuid';
@@ -51,13 +52,13 @@ const AdditionalColumn: FC = () => {
           />
 
           <div className='add__buttons'>
-            <Button variant='success' disabled={title === ''} type="submit"><i className='fa fa-plus' /> Добавить</Button>&nbsp;
-            <Button variant='secondary' onClick={() => setAddMode(false)} type="button"><i className='fa fa-times' /></Button>
+            <Button variant='success' disabled={title === ''} type="submit"><FaPlus /> Добавить</Button>&nbsp;
+            <Button variant='secondary' onClick={() => setAddMode(false)} type="button"><FaTimes /></Button>
           </div>
         </Form>
       ) : (
         <Button onClick={handleClickAdd} className="board__add-btn">
-          <i className="fa fa-plus" /> Добавить
+          <FaPlus /> Добавить
         </Button>
       )}
     </>

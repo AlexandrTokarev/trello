@@ -1,0 +1,12 @@
+.toggle {
+  &:global(.btn) {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    text-align: center;
+    color: #9c9c9c;
+    padding: 4px;
+    display: flex;
+    place-items: center;
+  }
+}

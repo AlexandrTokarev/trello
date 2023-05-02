@@ -1,14 +1,21 @@
 import { FC, forwardRef } from "react";
-import { Dropdown } from "react-bootstrap";
+import Dropdown from "react-bootstrap/Dropdown";
+import Button from "react-bootstrap/Button";
+import { FaEllipsisH } from "react-icons/fa";
 
 import { ActionsProps } from "./Actions.types";
 
-const CustomToggle = forwardRef(
-  ({ onClick }: { onClick(): void }, ref: any) => (
-    <div ref={ref} className="column__icon" onClick={onClick}>
-      <i className="fas fa-ellipsis-h" />
-    </div>
-  )
+import classes from "./Actions.module.scss";
+
+interface ToggleProps {
+  onClick(): void;
+}
+
+const CustomToggle = forwardRef<HTMLButtonElement, ToggleProps>(({ onClick }, ref) => (
+  <Button ref={ref} variant="light" className={classes.toggle} onClick={onClick}>
+    <FaEllipsisH />
+  </Button>
+)
 );
 
 const Actions: FC<ActionsProps> = ({ onAdd, onRemove }) => {
