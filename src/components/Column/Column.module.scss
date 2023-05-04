@@ -1,14 +1,35 @@
 .root {
+  border-radius: 3px;
+  width: 272px;
+  min-width: 272px;
+  margin: 0 4px;
+  max-height: 100%;
+
+  .addButton {
     border-radius: 3px;
-    width: 272px;
-    min-width: 272px;
-    margin: 0 4px;
-    max-height: 100%;
+    color: #5e6c84;
+    padding: 4px 8px;
+    background: transparent;
+    border: none;
+    margin-top: 2px;
+    margin-bottom: 4px;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+
+    &:active,
+    &:hover {
+      background-color: rgba(9, 30, 66, .08) !important;
+      color: #172b4d !important;
+      box-shadow: none !important;
+      border: none !important;
+    }
+  }
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    padding: 11px 14px;
-    color: #9c9c9c;
+  display: flex;
+  justify-content: space-between;
+  padding: 11px 14px;
+  color: #9c9c9c;
 }

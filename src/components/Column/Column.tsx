@@ -72,7 +72,7 @@ const Column: FC<ColumnProps> = ({ id, title, index }) => {
 
           <BootstrapCard.Footer>
             <Button className={classes.addButton} onClick={handleClickAdd}>
-              <FaPlus /> Добавить ещё одну карточку
+              <FaPlus /> Добавить карточку
             </Button>
           </BootstrapCard.Footer>
         </BootstrapCard>

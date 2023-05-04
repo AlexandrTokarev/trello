@@ -7,6 +7,8 @@ import { addColumn } from "@/store/board";
 import { uuid } from '@/utils/uuid';
 import { useClickOutside } from '@/hooks/useClickOutside';
 
+import classes from './AdditionalColumn.module.scss';
+
 const AdditionalColumn: FC = () => {
   const dispatch = useDispatch();
 
@@ -38,30 +40,30 @@ const AdditionalColumn: FC = () => {
   };
 
   return (
-    <>
+    <div className={classes.root}>
       {addMode ? (
-        <Form className='add' onSubmit={handleSubmit} ref={formRef}>
+        <Form className={classes.form} onSubmit={handleSubmit} ref={formRef}>
           <Form.Control
             as="textarea"
             autoFocus
-            className='add__textarea'
+            className={classes.textarea}
             placeholder='Введите заголовок...'
             value={title}
             onChange={handleChangeTitle}
             style={{ width: '100%' }}
           />
 
-          <div className='add__buttons'>
+          <div className={classes.actions}>
             <Button variant='success' disabled={title === ''} type="submit"><FaPlus /> Добавить</Button>&nbsp;
             <Button variant='secondary' onClick={() => setAddMode(false)} type="button"><FaTimes /></Button>
           </div>
         </Form>
       ) : (
-        <Button onClick={handleClickAdd} className="board__add-btn">
+        <Button onClick={handleClickAdd} variant='secondary' className={classes.addButton}>
           <FaPlus /> Добавить
         </Button>
       )}
-    </>
+    </div>
   );
 };
 
