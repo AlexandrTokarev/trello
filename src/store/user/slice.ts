@@ -4,7 +4,9 @@ import { UserState } from "./types";
 
 const initialState: UserState = {
   isAuth: false,
-  name: "",
+  profile: {
+    name: "",
+  }
 };
 
 export const userSlice = createSlice({
@@ -13,7 +15,7 @@ export const userSlice = createSlice({
   reducers: {
     login: (state, action: PayloadAction<string>) => {
       state.isAuth = true;
-      state.name = action.payload;
+      state.profile.name = action.payload;
     },
   },
 });

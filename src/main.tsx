@@ -1,4 +1,4 @@
-import React from 'react';
+import { StrictMode } from 'react';
 import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom/client';
 
@@ -9,9 +9,10 @@ import store from './store/store.ts';
 import './index.scss';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
+  // Hide StrictMode https://github.com/atlassian/react-beautiful-dnd/issues/2396
+  //<StrictMode>
     <Provider store={store}>
       <App />
     </Provider>
-  </React.StrictMode>
+  //</StrictMode>
 );

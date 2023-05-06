@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { IColumn } from "@/types/column";
 
-import { BoardState, MoveColumnPayload } from "./types";
+import { AddCardToColumnPayload, BoardState, MoveColumnPayload } from "./types";
 
 const initialState: BoardState = {
   columns: [],
@@ -24,6 +24,11 @@ export const boardSlice = createSlice({
     },
     removeColumn: (state, { payload }: PayloadAction<string>) => {
       state.columns = state.columns.filter((column) => column.id !== payload);
+    },
+    addCardToColumn: (state, { payload }: PayloadAction<AddCardToColumnPayload>) => {
+      const column = state.columns.find((column) => column.id === payload.columnId);
+
+      column?.cards.push(payload.card);
     }
   },
 });

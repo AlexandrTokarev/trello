@@ -1,0 +1,71 @@
+.root {
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(9, 30, 66, .25);
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 8px;
+  max-width: 300px;
+  min-height: 20px;
+  text-decoration: none;
+  z-index: 0;
+  padding: 6px 8px 2px;
+
+  & > .dropright {
+    position: inherit;
+  }
+
+  &:hover {
+    background-color: #f4f5f7;
+    border: none;
+
+    .edit {
+      visibility: visible;
+    }
+  }
+}
+
+.title {
+  clear: both;
+  display: block;
+  margin: 0 0 4px;
+  overflow: hidden;
+  text-decoration: none;
+  word-wrap: break-word;
+  color: #172b4d;
+  flex: 1 1 auto;
+}
+
+.edit {
+  background-color: #f4f5f7;
+  background-clip: padding-box;
+  background-origin: initial;
+  border-radius: 3px;
+  opacity: .8;
+  padding: 8px;
+  right: 2px;
+  top: 2px;
+  visibility: hidden;
+  z-index: 40;
+  height: 28px;
+  width: 28px;
+  border: none;
+  line-height: 0.5;
+
+  &:hover {
+    background-color: #d7d7d7;
+
+    &>i {
+      color: #898989;
+    }
+  }
+
+  &:focus,
+  &:active {
+    border: none !important;
+    outline: none;
+    box-shadow: none !important;
+    background-color: #bababa !important;
+  }
+}

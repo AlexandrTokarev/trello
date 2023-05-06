@@ -14,6 +14,7 @@ import Actions from "./components/Actions/Actions";
 import { ColumnProps } from "./Column.types";
 
 import classes from "./Column.module.scss";
+import AddCard from '../AddCard/AddCard';
 
 const Column: FC<ColumnProps> = ({ id, title, index }) => {
   const dispatch = useDispatch();
@@ -64,7 +65,7 @@ const Column: FC<ColumnProps> = ({ id, title, index }) => {
                 ))}
                 {provided.placeholder}
                 {createdMode && (
-                  <div>Add</div>
+                  <AddCard onClose={toggleCreatedMode} columnId={id} />
                 )}
               </BootstrapCard.Body>
             )}

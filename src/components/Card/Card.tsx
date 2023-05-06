@@ -1,12 +1,20 @@
 import { FC, forwardRef } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
-import { Dropdown } from "react-bootstrap";
+import { Button, Dropdown } from 'react-bootstrap';
+
 import { CardProps } from './Card.types';
 
-const CustomToggle = forwardRef(({ onClick }: { onClick(): void }, ref: any) => (
-	<div ref={ref} className='column__card-edit' onClick={onClick}>
-		<i className='fas fa-pen'/>
-	</div>
+import classes from './Card.module.scss';
+import { FaPen } from 'react-icons/fa';
+
+interface ToggleProps {
+	onClick(): void;
+}
+
+const CustomToggle = forwardRef<HTMLButtonElement, ToggleProps>(({ onClick }, ref) => (
+	<Button ref={ref} variant="light" className={classes.edit} onClick={onClick}>
+		<FaPen />
+	</Button>
 ));
 
 const Card: FC<CardProps> = ({ id, index, title }) => {
@@ -18,11 +26,11 @@ const Card: FC<CardProps> = ({ id, index, title }) => {
 					ref={provided.innerRef}
 					{...provided.draggableProps}
 					{...provided.dragHandleProps}
-					className='column__card text-14'
+					className={classes.root}
 				>
-					<span className='column__card-details'>{title}</span>
+					<span className={classes.title}>{title}</span>
 					<Dropdown drop="end">
-						<Dropdown.Toggle as={CustomToggle}/>
+						<Dropdown.Toggle as={CustomToggle} />
 						<Dropdown.Menu >
 							<Dropdown.Item>Открыть</Dropdown.Item>
 							<Dropdown.Item>Изменить</Dropdown.Item>

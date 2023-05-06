@@ -15,7 +15,10 @@ const AdditionalColumn: FC = () => {
   const [addMode, setAddMode] = useState(false);
   const [title, setTitle] = useState<string>('');
 
-  const formRef = useClickOutside(() => setAddMode(false));
+  const formRef = useClickOutside(() => {
+    setAddMode(false);
+    setTitle('');
+  });
 
   const handleChangeTitle = ({ target: { value } }: ChangeEvent<HTMLTextAreaElement>) => setTitle(value);
 
@@ -24,7 +27,8 @@ const AdditionalColumn: FC = () => {
     event.preventDefault();
 
     dispatch(addColumn({
-      id: uuid(), title,
+      id: uuid(),
+      title,
       created: new Date().toISOString(),
       updated: new Date().toISOString(),
       cards: [],

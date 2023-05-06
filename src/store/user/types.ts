@@ -1,4 +1,6 @@
+import { IUser } from '@/types/user';
+
 export interface UserState {
   isAuth: boolean;
-  name: string;
+  profile: IUser;
 }
