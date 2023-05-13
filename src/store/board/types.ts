@@ -14,3 +14,8 @@ export interface AddCardToColumnPayload {
   columnId: string;
   card: ICard;
 }
+
+export interface RemoveCardPayload {
+  columnId: string;
+  cardId: string;
+}

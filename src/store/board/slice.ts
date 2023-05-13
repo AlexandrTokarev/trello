@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { IColumn } from "@/types/column";
 
-import { AddCardToColumnPayload, BoardState, MoveColumnPayload } from "./types";
+import { AddCardToColumnPayload, BoardState, MoveColumnPayload, RemoveCardPayload } from "./types";
 
 const initialState: BoardState = {
   columns: [],
@@ -29,6 +29,14 @@ export const boardSlice = createSlice({
       const column = state.columns.find((column) => column.id === payload.columnId);
 
       column?.cards.push(payload.card);
+    },
+    removeCard: (state, { payload }: PayloadAction<RemoveCardPayload>) => {
+      const column = state.columns.find((column) => column.id === payload.columnId);
+  
+      if (!column)
+        throw Error('Колонка не найдена');
+  
+      column.cards = column.cards.filter((column) => column.id !== payload.cardId);
     }
   },
 });

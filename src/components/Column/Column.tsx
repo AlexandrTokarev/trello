@@ -60,6 +60,7 @@ const Column: FC<ColumnProps> = ({ id, title, index }) => {
                   <Card
                     key={card.id}
                     index={idx}
+                    columnId={id}
                     {...card}
                   />
                 ))}

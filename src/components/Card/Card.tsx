@@ -1,11 +1,13 @@
 import { FC, forwardRef } from 'react';
+import { useDispatch } from 'react-redux';
 import { Draggable } from 'react-beautiful-dnd';
 import { Button, Dropdown } from 'react-bootstrap';
+import { FaPen } from 'react-icons/fa';
 
 import { CardProps } from './Card.types';
 
 import classes from './Card.module.scss';
-import { FaPen } from 'react-icons/fa';
+import { removeCard } from '@/store/board';
 
 interface ToggleProps {
 	onClick(): void;
@@ -17,7 +19,12 @@ const CustomToggle = forwardRef<HTMLButtonElement, ToggleProps>(({ onClick }, re
 	</Button>
 ));
 
-const Card: FC<CardProps> = ({ id, index, title }) => {
+const Card: FC<CardProps> = ({ id, index, title, columnId }) => {
+	const dispatch = useDispatch();
+
+	const handleClickDelete = () => {
+		dispatch(removeCard({ cardId: id, columnId }))
+	}
 
 	return (
 		<Draggable draggableId={id} index={index}>
@@ -34,7 +41,7 @@ const Card: FC<CardProps> = ({ id, index, title }) => {
 						<Dropdown.Menu >
 							<Dropdown.Item>Открыть</Dropdown.Item>
 							<Dropdown.Item>Изменить</Dropdown.Item>
-							<Dropdown.Item>Удалить</Dropdown.Item>
+							<Dropdown.Item onClick={handleClickDelete}>Удалить</Dropdown.Item>
 						</Dropdown.Menu>
 					</Dropdown>
 				</div>)}
