@@ -41,7 +41,7 @@ export const boardSlice = createSlice({
     moveCard: (state, { payload }: PayloadAction<MoveCardPayload>) => {
       const { targetColumnId, sourceColumnId, newCardIndex, oldCardIndex } = payload;
 
-      const sourceColumn = state.columns.find(c => c.id === sourceColumnId);
+      const sourceColumn = state.columns.find((column) => column.id === sourceColumnId);
 
       if (!sourceColumn)
         throw Error('Колонка не найдена');
@@ -49,9 +49,9 @@ export const boardSlice = createSlice({
       const targetCard = sourceColumn.cards[oldCardIndex];
 
       if (sourceColumnId !== targetColumnId) {
-        sourceColumn.cards = sourceColumn.cards.filter(c => c.id !== targetCard.id);
+        sourceColumn.cards = sourceColumn.cards.filter((card) => card.id !== targetCard.id);
 
-        const targetColumn = state.columns.find(c => c.id === targetColumnId);
+        const targetColumn = state.columns.find((column) => column.id === targetColumnId);
   
         if (!targetColumn)
           throw Error('Целевая колонка не найдена');
