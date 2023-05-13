@@ -2,7 +2,7 @@ import { FC } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { DragDropContext, Droppable, DropResult } from "react-beautiful-dnd";
 
-import { moveColumn, selectColumns } from "@/store/board";
+import { moveCard, moveColumn, selectColumns } from "@/store/board";
 
 import AdditionalColumn from "../AdditionalColumn/AdditionalColumn";
 import Column from "../Column/Column";
@@ -23,11 +23,16 @@ const Board: FC = () => {
       );
     }
 
-    // if (type === 'CARD') {
-    // 	if (source.index !== destination.index || source.droppableId !== destination.droppableId) {
-
-    // 	}
-    // }
+    if (type === 'CARD') {
+      if (source.index !== destination.index || source.droppableId !== destination.droppableId) {
+        dispatch(moveCard({
+          sourceColumnId: source.droppableId,
+          targetColumnId: destination.droppableId,
+          oldCardIndex: source.index,
+          newCardIndex: destination.index
+        }))
+      }
+    }
   };
 
   return (

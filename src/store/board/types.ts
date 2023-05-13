@@ -19,3 +19,10 @@ export interface RemoveCardPayload {
   columnId: string;
   cardId: string;
 }
+
+export interface MoveCardPayload {
+  sourceColumnId: string;
+  targetColumnId: string;
+  oldCardIndex: number;
+  newCardIndex: number;
+}
